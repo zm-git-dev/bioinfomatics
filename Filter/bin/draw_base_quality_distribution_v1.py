@@ -44,12 +44,12 @@ def main():
 		with open(args.sample+".temp","w") as f:
 			R2_base=read_report(args.R1,f,base)
 			total_base=read_report(args.R2,f,R2_base)
-		os.system("/usr/bin/Rscript {0}/draw_base_quality_distribution_v1.r {1} {2} {3} {4} {5} {6} && rm {1}".format(bindir,args.sample+".temp",args.sample+"_base.pdf",R2_base,total_base,args.sample+"_quality.pdf",args.sample))
+		os.system("/usr/bin/Rscript {0}/draw_base_quality_distribution_v1.r {1} {2} {3} {4} {5} {6} && rm {1}".format(bindir,args.sample+".temp",args.sample+"_base.pdf",R2_base,total_base,args.sample+"_quality.pdf",os.path.basename(args.sample)))
 	else:
 		base=0
 		with open(args.sample+".temp","w") as f:
 			total_base=read_report(args.R1,f,base)
-		os.system("/usr/bin/Rscript {0}/draw_base_quality_distribution_v1.r {1} {2} {3} {4} {5} {6} && rm {1}".format(bindir,args.sample+".temp",args.sample+"_base.pdf",total_base,total_base,args.sample+"_quality.pdf",args.sample))
+		os.system("/usr/bin/Rscript {0}/draw_base_quality_distribution_v1.r {1} {2} {3} {4} {5} {6} && rm {1}".format(bindir,args.sample+".temp",args.sample+"_base.pdf",total_base,total_base,args.sample+"_quality.pdf",os.path.basename(args.sample)))
 				
 if __name__=="__main__":
 	main()
