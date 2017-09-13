@@ -66,10 +66,10 @@ def main():
 	func,exonic_func,genome_type,exonic_type=read_table(args.input)
 	tv_ts=open(args.output3,"w")
 	snp_change=open(args.output4,"w")
-	genome_tv=genome_type["CA"]+genome_type["CT"]+genome_type["AC"]+genome_type["TC"]+genome_type["GT"]+genome_type["GA"]+genome_type["TG"]+genome_type["AG"]
-	exonic_tv=exonic_type["CA"]+exonic_type["CT"]+exonic_type["AC"]+exonic_type["TC"]+exonic_type["GT"]+exonic_type["GA"]+exonic_type["TG"]+exonic_type["AG"]
-	genome_ts=genome_type["CG"]+genome_type["AT"]+genome_type["GC"]+genome_type["TA"]
-	exonic_ts=exonic_type["CG"]+exonic_type["AT"]+exonic_type["GC"]+exonic_type["TA"]
+	genome_tv=genome_type["TA"]+genome_type["TG"]+genome_type["AT"]+genome_type["GT"]+genome_type["CA"]+genome_type["CG"]+genome_type["AC"]+genome_type["GC"]
+	exonic_tv=exonic_type["TA"]+exonic_type["TG"]+exonic_type["AT"]+exonic_type["GT"]+exonic_type["CA"]+exonic_type["CG"]+exonic_type["AC"]+exonic_type["GC"]
+	genome_ts=genome_type["AG"]+genome_type["GA"]+genome_type["CT"]+genome_type["TC"]
+	exonic_ts=exonic_type["AG"]+exonic_type["GA"]+exonic_type["CT"]+exonic_type["TC"]
 	genome_ts_tv="%.4f" % (genome_ts/genome_tv)
 	exonic_ts_tv="%.4f" % (exonic_ts/exonic_tv)
 	tv_ts.write("Sample\tTs genome\tTv genome\tTs/Tv genome\tTs exonic\tTv exonic\tTs/Tv exonic\n")
