@@ -6,7 +6,9 @@ set shiftwidth=4
 set hlsearch
 set ignorecase
 set encoding=utf-8
-
+set list
+set listchars=tab:>-,trail:-
+set foldmethod=syntax
 
 autocmd BufNewFile *.py,*.pl, exec ":call SetTitle()"  
 let $author_name = "yaomingyue"  
@@ -35,4 +37,4 @@ call append(line(".")+6, "\use strict;")
 call append(line(".")+7, "\use warnings;")  
 call append(line(".")+8, "")  
 endif  
-endfunc  
+endfunc 
