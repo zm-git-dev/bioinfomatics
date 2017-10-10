@@ -60,9 +60,9 @@ def make_adapter(sample,outdir):
     output=str(sample)+".adapter"
     output_tmp=output+".tmp"
     if re.search(pat1,str(sample)):
-        f.write("{0} -a {1} -O 5 --info-file={2} {3}>/dev/null 2>&1 && awk '{{if ($2!=-1)print}}' {2}>{4} && gzip {4} && rm {2}\n".format(soft["cutadapt"],adap["p7"],output_tmp,sample,output))
+        f.write("{0} -a {1} -O 5 --info-file={2} {3}>/dev/null 2>&1 && awk -F \"\\t\"'{{if ($2!=-1)print}}' {2}>{4} && gzip {4} && rm {2}\n".format(soft["cutadapt"],adap["p7"],output_tmp,sample,output))
     elif re.search(pat2,str(sample)):
-        f.write("{0} -a {1} -O 5 --info-file={2} {3}>/dev/null 2>&1 && awk '{{if ($2!=-1)print}}' {2}>{4} && gzip {4} && rm {2}\n".format(soft["cutadapt"],adap["p5"],output_tmp,sample,output))
+        f.write("{0} -a {1} -O 5 --info-file={2} {3}>/dev/null 2>&1 && awk -F \"\\t\" '{{if ($2!=-1)print}}' {2}>{4} && gzip {4} && rm {2}\n".format(soft["cutadapt"],adap["p5"],output_tmp,sample,output))
     else:
         raise Exception(sample+"\t"+"存在问题")
 
