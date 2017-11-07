@@ -20,8 +20,6 @@ def get_capture_region(bed_input):
 				dic[tmp[0]][i]=""
 	return dic
 
-	return dic
-
 def get_capture_rate(bed_input,depth_input):
 	target_base=0
 	mapping_base=0
